@@ -70,7 +70,10 @@ func exec() int {
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 1, ' ', 0)
 	for _, item := range r.Items {
 		if opts.Language == "" {
-			fmt.Fprintf(w, "[%s]\t", shortenLanguage(item.Language))
+			if item.Language != "" {
+				fmt.Fprintf(w, "[%s]", shortenLanguage(item.Language))
+			}
+			fmt.Fprint(w, "\t")
 		}
 		fmt.Fprintln(w, item.FullName+"\t"+item.Description)
 	}

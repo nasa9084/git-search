@@ -84,8 +84,12 @@ func printErr(msg string, err error) {
 
 func shortenLanguage(lang string) string {
 	switch lang {
+	case "Emacs Lisp":
+		return "elisp"
 	case "JavaScript":
 		return "JS"
+	case "CoffeeScript":
+		return "Coffee"
 	default:
 		return lang
 	}
